@@ -17,6 +17,37 @@ The workflow involves:
 
 ---
 
+## 🖼️ System Architecture
+
+
+```mermaid
+flowchart TD
+    %% User Layer
+    U[👩‍💻 User] --> S[🌐 Streamlit UI]
+
+    %% CrewAI Agents
+    S --> C1[Technology Architect Agent]
+    S --> C2[Compliance Analyst Agent]
+    S --> C3[Compliance Specialist Agent]
+
+    C1 --> P[⚙️ CrewAI Process]
+    C2 --> P
+    C3 --> P
+
+    P --> T1[Task 1: Compliance Analysis]
+    P --> T2[Task 2: Compliance Reporting]
+    P --> T3[Task 3: Solution Design]
+
+    %% AWS Bedrock Integration
+    P --> B[Amazon Bedrock]
+
+    B --> BA[Amazon Bedrock Agents]
+    BA --> KB[Amazon Bedrock Knowledge Bases]
+    B --> GR[Amazon Bedrock Guardrails]
+    B --> LLM[LLM Models]
+```
+
+
 ## 🛠️ Steps Implemented
 
 ### 1. Create an Agent in SageMaker
@@ -117,36 +148,6 @@ To help new users understand the agents, we added some sample queries:
 5. Create Alias → 6. Python + CrewAI Integration →  
 7. Streamlit Deployment  
 
-## 🖼️ System Architecture
-
-## 🖼️ System Architecture
-
-```mermaid
-flowchart TD
-    %% User Layer
-    U[👩‍💻 User] --> S[🌐 Streamlit UI]
-
-    %% CrewAI Agents
-    S --> C1[Technology Architect Agent]
-    S --> C2[Compliance Analyst Agent]
-    S --> C3[Compliance Specialist Agent]
-
-    C1 --> P[⚙️ CrewAI Process]
-    C2 --> P
-    C3 --> P
-
-    P --> T1[Task 1: Compliance Analysis]
-    P --> T2[Task 2: Compliance Reporting]
-    P --> T3[Task 3: Solution Design]
-
-    %% AWS Bedrock Integration
-    P --> B[Amazon Bedrock]
-
-    B --> BA[Amazon Bedrock Agents]
-    BA --> KB[Amazon Bedrock Knowledge Bases]
-    B --> GR[Amazon Bedrock Guardrails]
-    B --> LLM[LLM Models]
-```
 
 ---
 
